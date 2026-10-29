@@ -1,0 +1,152 @@
+{
+  "name": "@klnap/payload-enhanced-ui",
+  "version": "0.2.0",
+  "description": "Payload CMS 3 admin plugin — optional shell CSS, locale switcher, and checkbox switches",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klnap/payload-enhanced-ui"
+  },
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#enh-ui/*": "./src/*"
+  },
+  "license": "MIT",
+  "author": "klnap",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "keywords": [
+    "payload",
+    "payloadcms",
+    "payload-plugin",
+    "cms",
+    "admin",
+    "ui",
+    "react"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/exports/index.ts",
+      "default": "./src/exports/index.ts"
+    },
+    "./client": {
+      "types": "./src/exports/client.ts",
+      "default": "./src/exports/client.ts"
+    },
+    "./rsc": {
+      "types": "./src/exports/rsc.ts",
+      "default": "./src/exports/rsc.ts"
+    },
+    "./admin/CheckboxSwitchField": {
+      "types": "./src/exports/admin/CheckboxSwitchField.ts",
+      "default": "./src/exports/admin/CheckboxSwitchField.ts"
+    },
+    "./admin/AdminNavLogo": {
+      "types": "./src/exports/admin/AdminNavLogo.ts",
+      "default": "./src/exports/admin/AdminNavLogo.ts"
+    },
+    "./styles/entry.css": "./src/styles/enhanced.entry.css",
+    "./styles/enhanced-tailwind.css": "./src/styles/enhanced-tailwind.css",
+    "./styles/peui-admin.css": "./src/styles/peui-admin.css",
+    "./features/locale-switcher/styles.css": "./src/features/locale-switcher/styles.css",
+    "./features/scrollbars/styles.css": "./src/features/scrollbars/styles.css",
+    "./features/header/styles.css": "./src/features/header/styles.css",
+    "./features/breadcrumbs/styles.css": "./src/features/breadcrumbs/styles.css",
+    "./features/sidebar-navigation/styles.css": "./src/features/sidebar-navigation/styles.css",
+    "./features/sidebar-logo-header/styles.css": "./src/features/sidebar-logo-header/styles.css",
+    "./features/field-group-headings/styles.css": "./src/features/field-group-headings/styles.css",
+    "./features/collection-list-tables/styles.css": "./src/features/collection-list-tables/styles.css",
+    "./features/date-time-picker/styles.css": "./src/features/date-time-picker/styles.css"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE",
+    "docs"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsc -p tsconfig.build.json --noEmit",
+    "build:styles": "tailwindcss -i ./src/styles/enhanced.entry.css -o ./src/styles/enhanced-tailwind.css --minify",
+    "build:dist": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json && bun run scripts/copy-css-to-dist.ts && tailwindcss -i ./src/styles/enhanced.entry.css -o ./src/styles/enhanced-tailwind.css --minify && cp ./src/styles/enhanced-tailwind.css ./dist/styles/enhanced-tailwind.css",
+    "prepack": "bun run build:dist",
+    "postpack": "rm -rf dist",
+    "check:exports": "bun run scripts/check-exports.ts",
+    "check:component-exports": "bun run scripts/check-payload-component-exports.ts",
+    "check:host-import-map": "bun run scripts/check-host-import-map.ts",
+    "check:boundaries": "depcruise --config dependency-cruiser.config.mjs --output-type err-long src",
+    "check:pack": "bun run scripts/check-pack.ts",
+    "test": "bun test tests",
+    "test:unit": "bun test tests/unit",
+    "test:arch": "bun test tests/architecture",
+    "lint": "biome check ."
+  },
+  "peerDependencies": {
+    "@payloadcms/ui": "^3.90.2",
+    "payload": "^3.90.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/exports/index.d.ts",
+        "import": "./dist/exports/index.js"
+      },
+      "./client": {
+        "types": "./dist/exports/client.d.ts",
+        "import": "./dist/exports/client.js"
+      },
+      "./rsc": {
+        "types": "./dist/exports/rsc.d.ts",
+        "import": "./dist/exports/rsc.js"
+      },
+      "./admin/CheckboxSwitchField": {
+        "types": "./dist/exports/admin/CheckboxSwitchField.d.ts",
+        "import": "./dist/exports/admin/CheckboxSwitchField.js"
+      },
+      "./admin/AdminNavLogo": {
+        "types": "./dist/exports/admin/AdminNavLogo.d.ts",
+        "import": "./dist/exports/admin/AdminNavLogo.js"
+      },
+      "./styles/entry.css": "./dist/styles/entry.css",
+      "./styles/enhanced-tailwind.css": "./dist/styles/enhanced-tailwind.css",
+      "./styles/peui-admin.css": "./dist/styles/peui-admin.css",
+      "./features/locale-switcher/styles.css": "./dist/features/locale-switcher/styles.css",
+      "./features/scrollbars/styles.css": "./dist/features/scrollbars/styles.css",
+      "./features/header/styles.css": "./dist/features/header/styles.css",
+      "./features/breadcrumbs/styles.css": "./dist/features/breadcrumbs/styles.css",
+      "./features/sidebar-navigation/styles.css": "./dist/features/sidebar-navigation/styles.css",
+      "./features/sidebar-logo-header/styles.css": "./dist/features/sidebar-logo-header/styles.css",
+      "./features/field-group-headings/styles.css": "./dist/features/field-group-headings/styles.css",
+      "./features/collection-list-tables/styles.css": "./dist/features/collection-list-tables/styles.css",
+      "./features/date-time-picker/styles.css": "./dist/features/date-time-picker/styles.css"
+    }
+  },
+  "devDependencies": {
+    "@payloadcms/ui": "3.90.2",
+    "@tailwindcss/cli": "^4.3.3",
+    "@types/bun": "^1.2.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "dependency-cruiser": "^18.2.0",
+    "@biomejs/biome": "2.5.14",
+    "payload": "3.90.2",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "tailwindcss": "^4.3.3",
+    "tsc-alias": "^1.9.7",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": "^24.0.0",
+    "bun": ">=1.4.0"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "tailwind-variants": "^3.3.1"
+  }
+}

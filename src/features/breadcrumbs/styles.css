@@ -1,0 +1,40 @@
+.step-nav {
+  font-size: 1rem;
+  font-weight: 400;
+  gap: 0.55rem;
+}
+
+.step-nav a,
+.step-nav span {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.step-nav > span,
+.step-nav a > span {
+  max-width: none;
+  overflow: visible;
+  text-overflow: unset;
+  white-space: nowrap;
+}
+
+.step-nav__home {
+  width: auto !important;
+  height: auto !important;
+}
+
+.step-nav__home svg {
+  display: none !important;
+}
+
+.step-nav__home > span::after {
+  content: "Start";
+}
+
+@media (max-width: 1024px) {
+  .app-header__step-nav-wrapper,
+  .step-nav {
+    display: none !important;
+  }
+}

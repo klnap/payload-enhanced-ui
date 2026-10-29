@@ -1,0 +1,7 @@
+{
+  ".": ["enhancedUi"],
+  "./client": ["EnhancedUiStyleLoader"],
+  "./rsc": ["EnhancedUiStyleLoader", "LocaleSwitcher"],
+  "./admin/AdminNavLogo": ["default"],
+  "./admin/CheckboxSwitchField": ["default"]
+}

@@ -1,0 +1,12 @@
+/* Row fields: switch sits in `.row__fields` — parent grid cannot be styled from the field component. */
+
+.field-type.row .row__fields > .peui-switch,
+.field-type.row .row__fields > .field-type:has(> .peui-switch) {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.field-type.row .peui-switch {
+  margin-bottom: 0;
+}

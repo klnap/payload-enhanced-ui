@@ -1,0 +1,57 @@
+/* Payload shell integration only — component chrome is Tailwind in locale-switcher.tsx */
+
+.app-header__localizer {
+  display: none !important;
+}
+
+.app-header:has(.peui-locale-switcher) .app-header__controls-wrapper {
+  align-items: center;
+  gap: calc(var(--base) / 2);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.app-header:has(.peui-locale-switcher) .app-header__step-nav-wrapper {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+}
+
+.collection-edit .app-header:has(.peui-locale-switcher) .app-header__actions-wrapper {
+  flex: 0 0 auto;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: 0 !important;
+  position: static;
+}
+
+.collection-list .app-header:has(.peui-locale-switcher) .app-header__actions-wrapper {
+  flex: 0 0 auto;
+  margin-top: 1.5rem;
+  margin-left: auto;
+  margin-right: 0 !important;
+  position: static;
+}
+
+.app-header:has(.peui-locale-switcher) .app-header__actions,
+.app-header:has(.peui-locale-switcher) .app-header__last-action {
+  margin-right: 0 !important;
+}
+
+.app-header__actions > div:has(.peui-locale-switcher) {
+  flex: 0 0 auto;
+  height: auto;
+  margin: 0 !important;
+  max-width: none;
+  width: auto;
+}
+
+.app-header:has(.peui-locale-switcher) .app-header__localizer-spacing {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .app-header--nav-open .peui-locale-switcher {
+    display: none;
+  }
+}

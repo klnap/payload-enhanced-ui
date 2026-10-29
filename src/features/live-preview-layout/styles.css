@@ -1,0 +1,102 @@
+/* Live Preview split — Payload sets `collection-edit--is-live-previewing` on `<main>`.
+ * Breakpoints: `@klnap/draft` / host `admin.livePreview`. Layout chrome only. */
+
+@supports (scrollbar-gutter: stable) {
+  html:has(.collection-edit--is-live-previewing) {
+    scrollbar-gutter: stable;
+  }
+}
+
+.collection-edit--is-live-previewing > .collection-edit__form > .doc-controls.gutter {
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+}
+
+.collection-edit--is-live-previewing .doc-controls__wrapper {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.collection-edit--is-live-previewing .doc-controls__controls-wrapper {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.live-preview-window.live-preview-window--is-live-previewing {
+  border-left: 1px solid var(--theme-elevation-150);
+  box-shadow: inset 1px 0 0 var(--theme-elevation-50);
+}
+
+.collection-edit--is-live-previewing .collection-edit__main-wrapper {
+  align-items: stretch;
+  border-top: 1px solid var(--theme-elevation-100);
+  width: 100%;
+}
+
+.collection-edit--is-live-previewing .collection-edit__main {
+  flex: 0 0 40%;
+  min-width: 0;
+  overflow: visible;
+  position: relative;
+  width: 40%;
+}
+
+.collection-edit--is-live-previewing .collection-edit__main::after {
+  display: none;
+}
+
+/* Match Payload `--force-sidebar-wrap` gutters; undo 66/33 + asymmetric main padding. */
+.collection-edit--is-live-previewing .document-fields {
+  --main-gutter-h-left: var(--gutter-h);
+  --main-gutter-h-right: var(--gutter-h);
+  --sidebar-gutter-h-left: var(--gutter-h);
+  --sidebar-gutter-h-right: var(--gutter-h);
+  --main-field-margin: calc(var(--gutter-h) * -1);
+  --main-border: none;
+  --main-width: 100%;
+}
+
+.collection-edit--is-live-previewing .document-fields.document-fields--has-sidebar {
+  display: block !important;
+}
+
+.collection-edit--is-live-previewing .document-fields--has-sidebar .document-fields__main {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.collection-edit--is-live-previewing .document-fields--has-sidebar .document-fields__sidebar-wrap {
+  height: auto !important;
+  min-width: 0 !important;
+  position: static !important;
+  width: 100% !important;
+}
+
+.collection-edit--is-live-previewing .document-fields--has-sidebar .document-fields__edit {
+  border-left: none !important;
+  border-right: none !important;
+  box-sizing: border-box;
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Full-bleed tab rule (Payload uses inline-flex + ::before/::after — do not override display). */
+.collection-edit--is-live-previewing .document-fields__fields > .tabs-field,
+.collection-edit--is-live-previewing .document-fields__fields > .group-field {
+  margin-left: calc(var(--gutter-h) * -1) !important;
+  margin-right: calc(var(--gutter-h) * -1) !important;
+}
+
+.collection-edit--is-live-previewing .document-fields__sidebar-fields .field-type,
+.collection-edit--is-live-previewing .document-fields__sidebar-fields .field-type__wrap,
+.collection-edit--is-live-previewing .document-fields__sidebar-fields .slug-field-component,
+.collection-edit--is-live-previewing .document-fields__sidebar-fields .slug-field-component input {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.collection-edit--is-live-previewing .live-preview-window--is-live-previewing {
+  border-top: none;
+}

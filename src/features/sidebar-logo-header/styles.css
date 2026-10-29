@@ -1,0 +1,13 @@
+.peui-sidebar-logo-header::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(-1 * var(--nav-padding-inline-start));
+  width: calc(100% + var(--nav-padding-inline-start) + var(--nav-padding-inline-end));
+  border-bottom: 1px solid var(--theme-elevation-100);
+}
+
+.nav__scroll > .peui-sidebar-logo-header {
+  flex-shrink: 0;
+}

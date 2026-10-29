@@ -1,0 +1,129 @@
+/* Date/time picker popup — enlarged cells and time list; sans time labels. */
+
+.date-time-picker {
+  /* Keep time scrollport in sync with day cell sizing (1 day-name row + week rows). */
+  --peui-dp-day-size: 3rem;
+  --peui-dp-day-margin: 0.25rem;
+  --peui-dp-week-rows: 5;
+  --peui-dp-cell-block: calc(var(--peui-dp-day-size) + 2 * var(--peui-dp-day-margin));
+  --peui-dp-time-list-height: calc((1 + var(--peui-dp-week-rows)) * var(--peui-dp-cell-block));
+}
+
+.date-time-picker .react-datepicker__month-select,
+.date-time-picker .react-datepicker__year-select,
+.date-time-picker .react-datepicker__header__dropdown {
+  font-size: 1.125rem;
+  font-family: var(--font-body);
+}
+
+.date-time-picker .react-datepicker__header__dropdown {
+  padding-block: 0.75rem;
+}
+
+.date-time-picker .react-datepicker__day-name {
+  width: var(--peui-dp-day-size);
+  margin: var(--peui-dp-day-margin);
+  line-height: var(--peui-dp-day-size);
+  font-size: 0.9375rem;
+  font-family: var(--font-body);
+}
+
+.date-time-picker .react-datepicker__day {
+  width: var(--peui-dp-day-size);
+  margin: var(--peui-dp-day-margin);
+  line-height: var(--peui-dp-day-size);
+  font-size: 1.0625rem;
+  font-family: var(--font-body);
+}
+
+.date-time-picker .react-datepicker-time__header {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  padding-block: 0.75rem;
+}
+
+.date-time-picker .react-datepicker__time-container,
+.date-time-picker
+  .react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box {
+  width: 11rem;
+}
+
+.date-time-picker .react-datepicker {
+  align-items: flex-start;
+}
+
+.date-time-picker .react-datepicker__month-container,
+.date-time-picker .react-datepicker__time-container {
+  float: none;
+}
+
+.date-time-picker .react-datepicker__time-container {
+  overflow: hidden;
+}
+
+.date-time-picker
+  .react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list {
+  height: var(--peui-dp-time-list-height) !important;
+  max-height: var(--peui-dp-time-list-height);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.date-time-picker
+  .react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 2.25rem;
+  min-height: 2.25rem;
+  padding-inline: 0.75rem;
+}
+
+.date-time-picker
+  .react-datepicker__navigation--next--with-time:not(
+    .react-datepicker__navigation--next--with-today-button
+  ) {
+  right: 11.625rem;
+}
+
+@media (max-width: 768px) {
+  .date-time-picker .react-datepicker__time-container {
+    width: auto;
+  }
+
+  .date-time-picker {
+    --peui-dp-time-list-height: 10rem;
+  }
+
+  .date-time-picker
+    .react-datepicker__time-container
+    .react-datepicker__time
+    .react-datepicker__time-box {
+    width: unset;
+  }
+
+  .date-time-picker
+    .react-datepicker__time-container
+    .react-datepicker__time
+    .react-datepicker__time-box
+    > ul {
+    height: var(--peui-dp-time-list-height) !important;
+    max-height: var(--peui-dp-time-list-height);
+    overflow-y: auto;
+  }
+
+  .date-time-picker
+    .react-datepicker__navigation--next--with-time:not(
+      .react-datepicker__navigation--next--with-today-button
+    ) {
+    right: 0;
+  }
+}

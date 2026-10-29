@@ -1,0 +1,90 @@
+/* Collection lists + document versions — full main width; wide tables scroll in a scrollport. */
+
+.template-default__wrap {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.template-default__wrap > .collection-list {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.collection-list__wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.collection-list__tables,
+.collection-edit--roles .iam-role-users-embedded .collection-list__tables {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.collection-list__tables .table-wrap,
+.collection-edit--roles .iam-role-users-embedded .collection-list__tables .table-wrap {
+  width: 100%;
+  min-width: min-content;
+}
+
+.collection-list__tables .table,
+.collection-edit--roles .iam-role-users-embedded .collection-list__tables .table {
+  width: 100%;
+  min-width: max-content;
+}
+
+.collection-list__tables .table th,
+.collection-list__tables .table td,
+.collection-edit--roles .iam-role-users-embedded .collection-list__tables .table th,
+.collection-edit--roles .iam-role-users-embedded .collection-list__tables .table td {
+  white-space: nowrap;
+}
+
+.collection-list__tables .table th .sort-column,
+.collection-list__tables .table td .cell-content {
+  white-space: nowrap;
+}
+
+.template-default__wrap > .versions,
+.template-default__wrap .versions {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.versions__wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.versions__wrap > .table {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.versions__wrap > .table table {
+  width: 100%;
+  min-width: max-content;
+}
+
+.versions__wrap .table th,
+.versions__wrap .table td {
+  white-space: nowrap;
+}
+
+.versions__wrap .table th .sort-column {
+  white-space: nowrap;
+}
